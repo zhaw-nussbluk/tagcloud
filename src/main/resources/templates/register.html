@@ -102,6 +102,24 @@
 								th:placeholder="#{form.mail.placeholder}" required>
 						</div>
 					</div>
+					
+					<div class="form-group row">
+						<label for="password" class="col-sm-3 col-form-label"
+							th:utext="#{form.password}"><span class="required"> *</span></label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" th:field="*{password}"
+								th:placeholder="#{form.password.placeholder}" required>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="password" class="col-sm-3 col-form-label"
+							th:utext="#{form.passwordConfirm}"><span class="required"> *</span></label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" th:field="*{passwordConfirm}"
+								th:placeholder="#{form.passwordConfirm.placeholder}" required>
+						</div>
+					</div>
 
 
 					<div class="row">
