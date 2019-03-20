@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="img/favicon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then popper JS, then Bootstrap JS, then React JS, then FeatherIcons JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.3/cjs/react.production.min.js"
+	integrity="sha384-x5zurvT1R4tuaJ/nHbK76pecX4+cEzBrLXlxfb1Eq0/guke0r10TNCMmT/7HXGt7"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.19.0/feather.js"
+	integrity="sha384-l8eL5ML7bVJCDhTVpk0ZkgHq213tIR8cF54vbE3ZMRo/qohsRFxA48KPE8OEWtFQ"
+	crossorigin="anonymous"></script>
+
+<title th:utext="#{title.login}"></title>
+</head>
+
+<body>
+
+	<!-- Include Navbar -->
+	<th:block th:include="/_navbar"></th:block>
+
+	<!-- Hier Content einfügen -->
+
+	<div class="container">
+		<div class="page-header shadow-sm p-3 mb-5 bg-white rounded">
+			<h1 th:utext="#{title.login}"></h1>
+		</div>
+		<div class="clearfix"></div>
+
+		<div class="card">
+			<h4 class="card-header" th:utext="#{card.header.login}"></h4>
+			<div class="card-body">
+				<p class="card-text"></p>
+				<form name='f' th:action="@{/j_spring_security_check}" method='POST'
+					action="">
+					<div class="form-group row">
+						<label for="mail" class="col-sm-3 col-form-label"
+							th:utext="#{form.mail}"><span class="required">*</span></label>
+						<div class="col-sm-9">
+							<input type="email" class="form-control" id="mail"
+								name="username" placeholder="E-Mail Adresse eingeben" required
+								th:disabled="${formDisable}">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="password" class="col-sm-3 col-form-label"
+							th:utext="#{form.password}"><span class="required">*</span></label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="appUserPassword"
+								aria-describedby="appUserPasswordHelp" name="password"
+								placeholder="Passwort eingeben" required
+								th:disabled="${formDisable}"> <small
+								id="appUserPasswordHelp" class="form-text text-muted"
+								th:utext="#{form.password.help}"></small>
+						</div>
+					</div>
+
+
+					<button type="submit" value="submit" name="submit"
+						class="btn btn-primary" th:utext="#{form.login.button.login}"></button>
+					<div th:if="${#request.getParameter('error') == 'true'}"
+						class="alert alert-danger" role="alert">
+						Login Fehlgeschlagen<br /> Grund: <span
+							th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+							th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+							Static summary </span>
+					</div>
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<!-- Ende von Content -->
+
+	<!-- für die Feather Icons, damit sie auftauchen-->
+	<script>
+        feather.replace()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top"
+	style="background-color: #011b40;">
+	<a class="navbar-brand" href="#">Tag Cloud <img
+		src="img/tagcloudlogo.PNG" width="60" height="60" alt="">
+	</a>
+	<ul class="navbar-nav mr-auto">
+		<li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="/activities" th:utext="#{nav.activities}"></a>
+		</li>
+		<li class="nav-item"><a class="nav-link" href="#" th:utext="#{nav.projects}"></a></li>
+		<li class="nav-item"><a class="nav-link" href="/about" th:utext="#{nav.about}"></a></li>
+		<li sec:authorize="isAnonymous()" class="nav-item"><a class="nav-link" href="/login" th:utext="#{nav.login}"></a>
+		</li>
+		<li sec:authorize="isAnonymous()" class="nav-item"><a class="nav-link" href="/register" th:utext="#{nav.register}"></a>
+		</li>
+		<li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="/logout" th:utext="#{nav.logout}"></a>
+		</li>
+		<li sec:authorize="hasRole('admin')" class="nav-item"><a class="nav-link" href="/admin" th:utext="#{nav.admin}"></a>
+		</li>
+	</ul>
+</nav>

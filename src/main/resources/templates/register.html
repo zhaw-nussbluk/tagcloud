@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="img/favicon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then popper JS, then Bootstrap JS, then React JS, then FeatherIcons JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.3/cjs/react.production.min.js"
+	integrity="sha384-x5zurvT1R4tuaJ/nHbK76pecX4+cEzBrLXlxfb1Eq0/guke0r10TNCMmT/7HXGt7"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.19.0/feather.js"
+	integrity="sha384-l8eL5ML7bVJCDhTVpk0ZkgHq213tIR8cF54vbE3ZMRo/qohsRFxA48KPE8OEWtFQ"
+	crossorigin="anonymous"></script>
+
+<title th:utext="#{title.register}"></title>
+</head>
+
+<body>
+
+	<!-- Include Navbar -->
+	<th:block th:include="/_navbar"></th:block>
+
+	<!-- Hier Content einfügen -->
+
+	<div class="container">
+		<div class="page-header shadow-sm p-3 mb-5 bg-white rounded">
+			<h1 th:utext="#{title.register}"></h1>
+		</div>
+
+		<div class="clearfix"></div>
+
+
+		<div class="card">
+			<h4 class="card-header" th:utext="#{card.header.register}"></h4>
+			<div class="card-body">
+				<p class="card-text"></p>
+				<form th:action="@{/register}" th:object="${userForm}"
+					method='POST'>
+					<!--					<div class="form-group row">
+						<label for="salutation" class="col-sm-3 col-form-label"
+							th:utext="#{form.salutation}"><span class="required"> *</span></label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control"
+								th:field="*{salutation}" th:placeholder="#{form.salutation.placeholder}"
+								required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="firstName" class="col-sm-3 col-form-label"
+							th:utext="#{form.firstname}"><span class="required"> *</span></label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" th:field="*{firstName}" th:placeholder="#{form.firstname.placeholder}"
+								required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="alias" class="col-sm-3 col-form-label"
+							th:utext="#{form.alias}"><span class="required"> *</span></label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" th:field="*{alias}"
+								th:placeholder="#{form.alias.placeholder}" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="lastName" class="col-sm-3 col-form-label"
+							th:utext="#{form.lastname}"><span class="required"> *</span></label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" th:field="*{lastName}" th:placeholder="#{form.lastname.placeholder}"
+								required>
+						</div>
+					</div> -->
+					<div class="form-group row">
+						<label for="userMail" class="col-sm-3 col-form-label"
+							th:utext="#{form.mail}"><span class="required"> *</span></label>
+						<div class="col-sm-9">
+							<input type="email" class="form-control" th:field="*{mail}"
+								th:placeholder="#{form.mail.placeholder}" required>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-sm-3">
+							<button type="submit" class="btn btn-primary"
+								th:utext="#{form.register.button.add}"></button>
+
+						</div>
+						<div class="col-sm-3">
+							<button type="reset" value="reset" name="reset"
+								class="btn btn-secondary"
+								th:utext="#{form.register.button.reset}"></button>
+
+						</div>
+						<div class="col-sm-3">
+							<a th:href="@{/index}" class="btn btn-secondary" role="button"
+								aria-pressed="true" th:utext="#{form.register.button.cancel}"></a>
+						</div>
+					</div>
+				</form>
+			</div>
+
+
+		</div>
+	</div>
+
+
+	<!-- Ende von Content -->
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+	<!-- für die Feather Icons, damit sie auftauchen-->
+	<script>
+        feather.replace()
+    </script>
+</body>
+
+</html>
