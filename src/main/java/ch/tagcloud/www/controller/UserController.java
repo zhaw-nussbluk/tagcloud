@@ -37,6 +37,8 @@ public class UserController {
     public String registerAddPage(Model model, User userForm) {
     	
     	userService.save(userForm);
+    	
+    	securityService.autoLogin(userForm.getMail(), userForm.getPasswordConfirm());
  
     	return "redirect:/index";
     }
