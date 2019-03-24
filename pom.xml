@@ -66,7 +66,7 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<!-- 		Add thymeleaf Dependency - https://www.thymeleaf.org/ -->
+		<!-- Add thymeleaf Dependency - https://www.thymeleaf.org/ -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -75,6 +75,12 @@
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
+		<!-- Datenbankmigration mit Flyway - URL: https://flywaydb.org -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+
 
 	</dependencies>
 	<build>
