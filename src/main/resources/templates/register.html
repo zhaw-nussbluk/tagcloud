@@ -61,7 +61,7 @@
 				<p class="card-text"></p>
 				<form th:action="@{/register}" th:object="${userForm}"
 					method='POST'>
-					<!--					<div class="form-group row">
+					<div class="form-group row">
 						<label for="salutation" class="col-sm-3 col-form-label"
 							th:utext="#{form.salutation}"><span class="required"> *</span></label>
 						<div class="col-sm-9">
@@ -79,21 +79,13 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="alias" class="col-sm-3 col-form-label"
-							th:utext="#{form.alias}"><span class="required"> *</span></label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" th:field="*{alias}"
-								th:placeholder="#{form.alias.placeholder}" required>
-						</div>
-					</div>
-					<div class="form-group row">
 						<label for="lastName" class="col-sm-3 col-form-label"
 							th:utext="#{form.lastname}"><span class="required"> *</span></label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" th:field="*{lastName}" th:placeholder="#{form.lastname.placeholder}"
 								required>
 						</div>
-					</div> -->
+					</div>
 					<div class="form-group row">
 						<label for="userMail" class="col-sm-3 col-form-label"
 							th:utext="#{form.mail}"><span class="required"> *</span></label>

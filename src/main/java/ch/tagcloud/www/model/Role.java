@@ -1,6 +1,11 @@
 package ch.tagcloud.www.model;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -9,7 +14,16 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column
+	@CreationTimestamp
+	private LocalDateTime createDateTime;
 
+	@Column
+	@UpdateTimestamp
+	private LocalDateTime updateDateTime;
+
+	@Column(length = 40, unique=true)
     private String name;
 
     @ManyToMany(mappedBy = "roles")
