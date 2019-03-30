@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
         
         // Is Authenticated
-        http.authorizeRequests().antMatchers("/admin").access("isAuthenticated()");
+        http.authorizeRequests().antMatchers("/activities").access("isAuthenticated()");
  
         // When the user has logged in as XX.
         // But access a page that requires role YY,
