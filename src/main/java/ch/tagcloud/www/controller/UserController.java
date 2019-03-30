@@ -41,8 +41,6 @@ public class UserController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerAddPage(Model model, User userForm) {
     	
-
-    	
     	userService.save(userForm);
     	
     	securityService.autoLogin(userForm.getMail(), userForm.getPasswordConfirm());
