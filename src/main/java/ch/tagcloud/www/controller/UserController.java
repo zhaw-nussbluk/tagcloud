@@ -3,12 +3,14 @@ package ch.tagcloud.www.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import ch.tagcloud.www.model.User;
 import ch.tagcloud.www.service.SecurityService;
 import ch.tagcloud.www.service.UserService;
+import ch.tagcloud.www.validator.UserValidator;
 
 @Controller
 public class UserController {
@@ -18,6 +20,9 @@ public class UserController {
 	
 	@Autowired
     private SecurityService securityService;
+	
+	@Autowired
+    private UserValidator userValidator;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {
@@ -35,6 +40,8 @@ public class UserController {
     
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerAddPage(Model model, User userForm) {
+    	
+
     	
     	userService.save(userForm);
     	

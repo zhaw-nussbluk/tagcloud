@@ -23,7 +23,7 @@ public class Role {
 	@UpdateTimestamp
 	private LocalDateTime updateDateTime;
 
-	@Column(length = 40, unique=true)
+	@Column(length = 40, unique=true, nullable = false)
     private String name;
 
     @ManyToMany(mappedBy = "roles")

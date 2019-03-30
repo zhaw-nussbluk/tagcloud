@@ -2,157 +2,62 @@
 <html lang="de" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link rel="icon" href="img/favicon.png">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="icon" href="img/favicon.png">
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then popper JS, then Bootstrap JS, then React JS, then FeatherIcons JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.3/cjs/react.production.min.js"
-        integrity="sha384-x5zurvT1R4tuaJ/nHbK76pecX4+cEzBrLXlxfb1Eq0/guke0r10TNCMmT/7HXGt7"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.19.0/feather.js"
-        integrity="sha384-l8eL5ML7bVJCDhTVpk0ZkgHq213tIR8cF54vbE3ZMRo/qohsRFxA48KPE8OEWtFQ"
-        crossorigin="anonymous"></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 
-    <title th:utext="#{title.index}"></title>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then popper JS, then Bootstrap JS, then React JS, then FeatherIcons JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.3/cjs/react.production.min.js"
+	integrity="sha384-x5zurvT1R4tuaJ/nHbK76pecX4+cEzBrLXlxfb1Eq0/guke0r10TNCMmT/7HXGt7"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.19.0/feather.js"
+	integrity="sha384-l8eL5ML7bVJCDhTVpk0ZkgHq213tIR8cF54vbE3ZMRo/qohsRFxA48KPE8OEWtFQ"
+	crossorigin="anonymous"></script>
+
+<title th:utext="#{title.index}"></title>
 </head>
 
 <body>
 
-    <!-- Include Navbar -->
-    <th:block th:include="/_navbar"></th:block>
-    
+	<!-- Include Navbar -->
+	<th:block th:include="/_navbar"></th:block>
 
-    <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid" style="background-color: #ffffff;">
-        <div class="container text-center">
-            <img src="img/undraw_developer_activity_bv83.svg" width="200" height="200" alt="">
-            <h1 style="color:#011b40" ;>Aktivitäten</h1>
-        </div>
-    </div>
+	<div sec:authorize="isAuthenticated()">
+		 <h1>Willkommen bei TagCloud</h1><br><br>
+		 <h2>Dein Benutzername: <span sec:authentication="name"></span></h2><br><br>
+		 <h2>Deine Rolle(n): <span sec:authentication="principal.authorities"></span></h2>
+	</div>
+	
+	<div sec:authorize="isAnonymous()">
+		<h1>Willkommen bei TagCloud</h1>
+	</div>
 
-    <!--Liste-->
-    <div class="container-fluid">
-        <div class="card bg-light">
-            <h5 class="card-header">Zeiterfassung</h5>
-            <div class="card-body">
-                <div>
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col" style="background-color: #011b40;">#</th>
-                                <th scope="col" style="background-color: #011b40;">Projekt</th>
-                                <th scope="col" style="background-color: #011b40;">Tag</th>
-                                <th scope="col" style="background-color: #011b40;">Kommentar</th>
-                                <th scope="col" style="background-color: #011b40;">Timestamp</th>
-                                <th scope="col" style="background-color: #011b40;">Zeitaufwand</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Datenbank Migration</td>
-                                <td>DB</td>
-                                <td>Daten extrahiert</td>
-                                <td>10:32:14</td>
-                                <td>4h</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Webshop</td>
-                                <td>Prototyp</td>
-                                <td>Datenstruktur erstellt</td>
-                                <td>13:34:58</td>
-                                <td>3h</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Administration</td>
-                                <td>admin</td>
-                                <td>Terminabsprachen</td>
-                                <td>15:29:34</td>
-                                <td>2h</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <br />
-
-    <!-- Neuer Eintrag in die Aktivitätenliste-->
-
-    <div class="container-fluid">
-        <div class="card bg-light">
-            <h5 class="card-header">Neue Aktivität erfassen</h5>
-            <div class="card-body">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="inputState">Projekt</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>Wählen...</option>
-                                <option>Datenbank Migration</option>
-                                <option>Webshop</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputState">Tag</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>Wählen...</option>
-                                <option>Migration</option>
-                                <option>Archive</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <fieldset disabled>
-                                <div class="form-group">
-                                    <label for="disabledTextInput">Timestamp</label>
-                                    <input type="text" id="disabledTextInput" class="form-control"
-                                        placeholder="16:51:21">
-                                </div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-10">
-                            <label for="inputAddress">Kommentar</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="...">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputAddress">Zeitaufwand</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="...">
-                        </div>
-                    </div>
-
-                    <div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- für die Feather Icons, damit sie auftauchen-->
-    <script>
+	<!-- für die Feather Icons, damit sie auftauchen-->
+	<script>
         feather.replace()
     </script>
 </body>

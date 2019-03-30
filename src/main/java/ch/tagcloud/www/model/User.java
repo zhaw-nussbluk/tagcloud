@@ -23,21 +23,23 @@ public class User {
 	@UpdateTimestamp
 	private LocalDateTime updateDateTime;
 
-	@Column(length = 160, unique=true)
+	@Column(length = 160, unique=true, nullable = false)
     private String mail;
 
+	@Column(nullable = false)
     private String password;
 
+	@Column(nullable = false)
     @Transient
     private String passwordConfirm;
     
-    @Column(length = 4)
+    @Column(length = 4, nullable = false)
 	private String salutation;
     
-    @Column(length = 80)
+    @Column(length = 80, nullable = false)
     private String firstName;
     
-    @Column(length = 80)
+    @Column(length = 80, nullable = false)
     private String lastName;
 
     @ManyToMany
