@@ -37,6 +37,9 @@
 	integrity="sha384-l8eL5ML7bVJCDhTVpk0ZkgHq213tIR8cF54vbE3ZMRo/qohsRFxA48KPE8OEWtFQ"
 	crossorigin="anonymous"></script>
 
+<!-- Load Custom CSS File -->
+<link rel="stylesheet" href="custom.css">
+
 <title th:utext="#{title.register}"></title>
 </head>
 
@@ -59,31 +62,32 @@
 			<h4 class="card-header" th:utext="#{card.header.register}"></h4>
 			<div class="card-body">
 				<p class="card-text"></p>
-				<form th:action="@{/register}" th:object="${userForm}"
-					method='POST'>
+				<form th:action="@{/register}" th:object="${userForm}" method='POST'>
 					<div class="form-group row">
 						<label for="salutation" class="col-sm-3 col-form-label"
-							th:utext="#{form.salutation}"><span class="required"> *</span></label>
+							th:utext="#{form.salutation}"><span class="required">
+								*</span></label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control"
-								th:field="*{salutation}" th:placeholder="#{form.salutation.placeholder}"
-								required>
+							<input type="text" class="form-control" th:field="*{salutation}"
+								th:placeholder="#{form.salutation.placeholder}" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="firstName" class="col-sm-3 col-form-label"
-							th:utext="#{form.firstname}"><span class="required"> *</span></label>
+							th:utext="#{form.firstname}"><span class="required">
+								*</span></label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" th:field="*{firstName}" th:placeholder="#{form.firstname.placeholder}"
-								required>
+							<input type="text" class="form-control" th:field="*{firstName}"
+								th:placeholder="#{form.firstname.placeholder}" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="lastName" class="col-sm-3 col-form-label"
-							th:utext="#{form.lastname}"><span class="required"> *</span></label>
+							th:utext="#{form.lastname}"><span class="required">
+								*</span></label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" th:field="*{lastName}" th:placeholder="#{form.lastname.placeholder}"
-								required>
+							<input type="text" class="form-control" th:field="*{lastName}"
+								th:placeholder="#{form.lastname.placeholder}" required>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -94,21 +98,25 @@
 								th:placeholder="#{form.mail.placeholder}" required>
 						</div>
 					</div>
-					
+
 					<div class="form-group row">
 						<label for="password" class="col-sm-3 col-form-label"
-							th:utext="#{form.password}"><span class="required"> *</span></label>
+							th:utext="#{form.password}"><span class="required">
+								*</span></label>
 						<div class="col-sm-9">
-							<input type="password" class="form-control" th:field="*{password}"
+							<input type="password" class="form-control"
+								th:field="*{password}"
 								th:placeholder="#{form.password.placeholder}" required>
 						</div>
 					</div>
-					
+
 					<div class="form-group row">
 						<label for="password" class="col-sm-3 col-form-label"
-							th:utext="#{form.passwordConfirm}"><span class="required"> *</span></label>
+							th:utext="#{form.passwordConfirm}"><span class="required">
+								*</span></label>
 						<div class="col-sm-9">
-							<input type="password" class="form-control" th:field="*{passwordConfirm}"
+							<input type="password" class="form-control"
+								th:field="*{passwordConfirm}"
 								th:placeholder="#{form.passwordConfirm.placeholder}" required>
 						</div>
 					</div>
@@ -146,8 +154,8 @@
 
 	<!-- für die Feather Icons, damit sie auftauchen-->
 	<script>
-        feather.replace()
-    </script>
+		feather.replace()
+	</script>
 </body>
 
 </html>

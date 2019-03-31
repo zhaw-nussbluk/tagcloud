@@ -37,6 +37,9 @@
 	integrity="sha384-l8eL5ML7bVJCDhTVpk0ZkgHq213tIR8cF54vbE3ZMRo/qohsRFxA48KPE8OEWtFQ"
 	crossorigin="anonymous"></script>
 
+<!-- Load Custom CSS File -->
+<link rel="stylesheet" href="custom.css">
+
 <title th:utext="#{title.index}"></title>
 </head>
 
@@ -46,20 +49,53 @@
 	<th:block th:include="/_navbar"></th:block>
 
 	<div sec:authorize="isAuthenticated()">
-		 <h1>Willkommen bei TagCloud</h1><br><br>
-		 <h2>Dein Benutzername: <span sec:authentication="name"></span></h2><br><br>
-		 <h2>Deine Rolle(n): <span sec:authentication="principal.authorities"></span></h2>
+		<h1>Willkommen bei TagCloud</h1>
+		<br>
+		<br>
+		<h2>
+			Dein Benutzername: <span sec:authentication="name"></span>
+		</h2>
+		<br>
+		<br>
+		<h2>
+			Deine Rolle(n): <span sec:authentication="principal.authorities"></span>
+		</h2>
 	</div>
-	
+
 	<div sec:authorize="isAnonymous()">
 		<h1>Willkommen bei TagCloud</h1>
 	</div>
 
+	<div class="alert alert-success alert-bottom alert-dismissible fade show" role="alert" th:if="${param.login}">		
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<span th:text="#{alert.login.success}"></span>
+	</div>
+	
+	<div class="alert alert-success alert-bottom alert-dismissible fade show" role="alert" th:if="${param.logout}">		
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<span th:text="#{alert.logout.success}"></span>
+	</div>
+	
+	<div class="alert alert-success alert-bottom alert-dismissible fade show" role="alert" th:if="${param.register}">		
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<span th:text="#{alert.register.success}"></span>
+	</div>
+	
+
 
 	<!-- für die Feather Icons, damit sie auftauchen-->
 	<script>
-        feather.replace()
-    </script>
+		feather.replace()
+	</script>
 </body>
 
 </html>

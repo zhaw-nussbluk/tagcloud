@@ -45,7 +45,7 @@ public class UserController {
     	
     	securityService.autoLogin(userForm.getMail(), userForm.getPasswordConfirm());
  
-    	return "redirect:/index";
+    	return "redirect:/index?register=true";
     }
 
 }
