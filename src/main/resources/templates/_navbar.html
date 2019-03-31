@@ -12,11 +12,11 @@
 		</li>
 		<li sec:authorize="isAnonymous()" class="nav-item"><a class="nav-link" href="/register" th:utext="#{nav.register}"></a>
 		</li>
-		<li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="/logout" th:utext="#{nav.logout}"></a>
-		</li>
 		<li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="/profile" th:utext="#{nav.profile}"></a>
 		</li>
 		<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="/admin" th:utext="#{nav.admin}"></a>
+		</li>
+		<li sec:authorize="isAuthenticated()" class="nav-item"><form th:action="@{/logout}" method="post"><button type="submit" class="btn btn-primary" th:utext="#{nav.logout}"></button></form>
 		</li>
 	</ul>
 </nav>

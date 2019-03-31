@@ -80,6 +80,8 @@
 								th:utext="#{form.password.help}"></small>
 						</div>
 					</div>
+					<input type="hidden" th:name="${_csrf.parameterName}"
+						th:value="${_csrf.token}" />
 
 
 					<button type="submit" value="submit" name="submit"
