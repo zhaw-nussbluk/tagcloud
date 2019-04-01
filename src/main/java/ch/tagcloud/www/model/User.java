@@ -1,6 +1,7 @@
 package ch.tagcloud.www.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -24,16 +25,19 @@ public class User {
 	private LocalDateTime updateDateTime;
 
 	@Column(length = 160, unique=true, nullable = false)
+	@Size(min=6, max=160)
     private String mail;
 
 	@Column(nullable = false)
+	@Size(min=8)
     private String password;
 
 	@Column(nullable = false)
     @Transient
     private String passwordConfirm;
     
-    @Column(length = 4, nullable = false)
+    @Column(nullable = false)
+    @Size(min=4, max=4)
 	private String salutation;
     
     @Column(length = 80, nullable = false)

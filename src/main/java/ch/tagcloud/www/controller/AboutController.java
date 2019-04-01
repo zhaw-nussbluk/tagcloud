@@ -2,13 +2,12 @@ package ch.tagcloud.www.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AboutController {
 	
-	@RequestMapping(value = "/about", method = RequestMethod.GET)
+	@GetMapping(value = "/about")
     public String loginPage(Model model) {
  
         return "about";

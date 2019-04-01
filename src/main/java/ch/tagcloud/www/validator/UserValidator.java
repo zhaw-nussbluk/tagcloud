@@ -23,21 +23,27 @@ public class UserValidator implements Validator {
     public void validate(Object o, Errors errors) {
         User user = (User) o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mail", "NotEmpty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mail", "validate.notempty");
         if (user.getMail().length() < 6 || user.getMail().length() > 161) {
-            errors.rejectValue("mail", "Size.userForm.username");
-        }
+            errors.rejectValue("mail", "validation.userform.mail.lenght");
+        } 
         if (userService.findByMail(user.getMail()) != null) {
-            errors.rejectValue("mail", "Duplicate.userForm.username");
-        }
+            errors.rejectValue("mail", "validation.userform.mail.duplicate");
+        } 
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
-        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-            errors.rejectValue("password", "Size.userForm.password");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "validate.notempty");
+        if (user.getPassword().length() < 6 || user.getPassword().length() > 32) {
+            errors.rejectValue("password", "validation.userform.password.length");
         }
 
         if (!user.getPasswordConfirm().equals(user.getPassword())) {
-            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
-        }
+            errors.rejectValue("passwordConfirm", "validation.userForm.password.confirm");
+        } 
+        
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "salutation", "validate.notempty");
+        
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "validate.notempty");
+        
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "validate.notempty");
     }
 }

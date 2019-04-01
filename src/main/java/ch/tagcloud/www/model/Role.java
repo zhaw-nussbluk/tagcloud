@@ -18,6 +18,8 @@ public class Role {
     @Column
 	@CreationTimestamp
 	private LocalDateTime createDateTime;
+    
+    
 
 	@Column
 	@UpdateTimestamp
