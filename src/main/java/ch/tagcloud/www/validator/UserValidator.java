@@ -41,9 +41,18 @@ public class UserValidator implements Validator {
         } 
         
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "salutation", "validate.notempty");
+        if (user.getSalutation().length() < 4 || user.getSalutation().length() > 4) {
+            errors.rejectValue("salutation", "validation.userform.salutation.length");
+        }
         
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "validate.notempty");
+        if (user.getFirstName().length() > 80) {
+            errors.rejectValue("firstName", "validation.userform.firstName.length");
+        }
         
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "validate.notempty");
+        if (user.getLastName().length() > 80) {
+            errors.rejectValue("lastName", "validation.userform.LastName.length");
+        }
     }
 }

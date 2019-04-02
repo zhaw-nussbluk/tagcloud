@@ -1,3 +1,0 @@
-INSERT INTO user (mail, password, create_date_time, salutation, update_date_time, first_name, last_name) VALUES ('admin@tagcloud.ch', '$2a$10$TBoYn9sw197j8U1V9zCfMOjTXkq.eGnLWnoW.S.FKlYLGZiI1t0Pa', NOW(), 'Herr', NOW(), 'Admin', 'Admin');
-
-INSERT INTO user_roles (users_id, roles_id) SELECT (SELECT id FROM user WHERE mail='admin@tagcloud.ch') AS users_id, (SELECT id FROM role WHERE NAME='admin') as roles_id;
