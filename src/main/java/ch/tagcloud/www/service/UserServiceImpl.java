@@ -28,8 +28,16 @@ public class UserServiceImpl implements UserService {
     
     @Override
     public void update(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
+
+        User userFromDb = userRepository.findByMail(user.getMail());
+
+        userFromDb.setSalutation(user.getSalutation());
+        userFromDb.setFirstName(user.getFirstName());
+        userFromDb.setLastName(user.getLastName());
+        userFromDb.setMail(user.getMail());
+        userFromDb.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        
+        userRepository.save(userFromDb);
     }
 
     @Override

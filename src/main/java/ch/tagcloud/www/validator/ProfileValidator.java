@@ -10,7 +10,7 @@ import ch.tagcloud.www.model.User;
 import ch.tagcloud.www.service.UserService;
 
 @Component
-public class UserValidator implements Validator {
+public class ProfileValidator implements Validator {
     @Autowired
     private UserService userService;
 
@@ -24,15 +24,16 @@ public class UserValidator implements Validator {
         User user = (User) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mail", "validate.notempty");
-        if (user.getMail().length() < 4 || user.getMail().length() > 160) {
+        if (user.getMail().length() < 6 || user.getMail().length() > 160) {
             errors.rejectValue("mail", "validation.userform.mail.lenght");
-        } 
+        }
+        /*
         if (userService.findByMail(user.getMail()) != null) {
             errors.rejectValue("mail", "validation.userform.mail.duplicate");
-        } 
+        } */
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "validate.notempty");
-        if (user.getPassword().length() < 6 || user.getPassword().length() > 32) {
+        if (user.getPassword().length() < 4 || user.getPassword().length() > 32) {
             errors.rejectValue("password", "validation.userform.password.length");
         }
 

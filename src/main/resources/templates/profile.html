@@ -69,8 +69,45 @@
 						<div class="col-sm-9">
 							<input type="text" class="form-control" th:field="*{salutation}"
 								th:placeholder="#{form.salutation.placeholder}" required>
+							<div class="alert alert-danger" role="alert"
+								th:if="${#fields.hasErrors('salutation')}"
+								th:errors="*{salutation}"></div>
 						</div>
 					</div>
+					<div class="form-group row">
+						<label for="firstName" class="col-sm-3 col-form-label"
+							th:utext="#{form.firstname}"><span class="required">
+								*</span></label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" th:field="*{firstName}"
+								th:placeholder="#{form.firstname.placeholder}" required>
+							<div class="alert alert-danger" role="alert"
+								th:if="${#fields.hasErrors('firstName')}"
+								th:errors="*{firstName}"></div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="lastName" class="col-sm-3 col-form-label"
+							th:utext="#{form.lastname}"><span class="required">
+								*</span></label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" th:field="*{lastName}"
+								th:placeholder="#{form.lastname.placeholder}" required>
+							<div class="alert alert-danger" role="alert"
+								th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="userMail" class="col-sm-3 col-form-label"
+							th:utext="#{form.mail}"><span class="required"> *</span></label>
+						<div class="col-sm-9">
+							<input type="email" class="form-control" th:field="*{mail}"
+								th:placeholder="#{form.mail.placeholder}" required>
+							<div class="alert alert-danger" role="alert"
+								th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></div>
+						</div>
+					</div>
+
 					<div class="form-group row">
 						<label for="password" class="col-sm-3 col-form-label"
 							th:utext="#{form.password}"><span class="required">
@@ -79,6 +116,8 @@
 							<input type="password" class="form-control"
 								th:field="*{password}"
 								th:placeholder="#{form.password.placeholder}" required>
+							<div class="alert alert-danger" role="alert"
+								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 						</div>
 					</div>
 
@@ -90,6 +129,9 @@
 							<input type="password" class="form-control"
 								th:field="*{passwordConfirm}"
 								th:placeholder="#{form.passwordConfirm.placeholder}" required>
+							<div class="alert alert-danger" role="alert"
+								th:if="${#fields.hasErrors('passwordConfirm')}"
+								th:errors="*{passwordConfirm}"></div>
 						</div>
 					</div>
 
@@ -97,7 +139,7 @@
 					<div class="row">
 						<div class="col-sm-3">
 							<button type="submit" class="btn btn-primary"
-								th:utext="#{form.profile.button.add}"></button>
+								th:utext="#{form.profile.button.update}"></button>
 
 						</div>
 						<div class="col-sm-3">
@@ -114,7 +156,16 @@
 				</form>
 			</div>
 
+		</div>
 
+		<div
+			class="alert alert-success alert-bottom alert-dismissible fade show"
+			role="alert" th:if="${param.update}">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<span th:text="#{alert.update.user.success}"></span>
 		</div>
 	</div>
 
@@ -126,8 +177,8 @@
 
 	<!-- für die Feather Icons, damit sie auftauchen-->
 	<script>
-        feather.replace()
-    </script>
+		feather.replace()
+	</script>
 </body>
 
 </html>
