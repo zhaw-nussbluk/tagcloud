@@ -68,34 +68,30 @@
 			<div class="card-body"></div>
 
 
-<table id="users" class="table table-striped table-bordered"
-			style="width: 100%">
-			<thead>
-				<tr>
-					<th th:utext="#{user.id}"></th>
-					<th th:utext="#{user.salutation}"></th>
-					<th th:utext="#{user.firstname}"></th>
-					<th th:utext="#{user.lastname}"></th>
-					<th th:utext="#{user.mail}"></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="user : ${user}">
-					<td th:utext="${user.id}"></td>
-					<td th:utext="${user.salutation}"></td>
-					<td th:utext="${user.firstName}"></td>
-					<td th:utext="${user.lastName}"></td>
-					<td th:utext="${user.mail}"></td>
+			<table id="users" class="table table-striped table-bordered"
+				style="width: 100%">
+				<thead>
+					<tr>
+						<th th:utext="#{user.id}"></th>
+						<th th:utext="#{user.salutation}"></th>
+						<th th:utext="#{user.firstname}"></th>
+						<th th:utext="#{user.lastname}"></th>
+						<th th:utext="#{user.mail}"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user : ${user}">
+						<td th:utext="${user.id}"></td>
+						<td th:utext="${user.salutation}"></td>
+						<td th:utext="${user.firstName}"></td>
+						<td th:utext="${user.lastName}"></td>
+						<td th:utext="${user.mail}"></td>
 
-				</tr>
-			</tbody>
-		</table>
+					</tr>
+				</tbody>
+			</table>
 
 		</div>
-
-
-
-
 
 		<!-- Ende von Content -->
 
