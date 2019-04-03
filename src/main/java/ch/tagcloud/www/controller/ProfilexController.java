@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import ch.tagcloud.www.model.User;
+import ch.tagcloud.www.repository.RoleRepository;
 import ch.tagcloud.www.service.SecurityService;
 import ch.tagcloud.www.service.UserService;
 import ch.tagcloud.www.validator.ProfileValidator;
@@ -25,6 +26,9 @@ public class ProfilexController {
 	@Autowired
     private UserService userService;
 	
+    @Autowired
+    private RoleRepository roleRepository;
+	
 	@Autowired
     private ProfileValidator profileValidator;
 
@@ -34,6 +38,7 @@ public class ProfilexController {
 		String username = principal.getName();
     	
     	model.addAttribute("userForm", userService.findByMail(username));
+    	
  
         return "profile";
     }
